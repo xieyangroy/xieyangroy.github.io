@@ -37,7 +37,7 @@
 <link rel="canonical" href="https://blog.royxie.site/">
 
 
-<script data-pjax class="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -206,69 +206,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.royxie.site/2021/02/20/text/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Roy">
-      <meta itemprop="description" content="分享有趣的生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roy Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/20/text/" class="post-title-link" itemprop="url">text</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-20 22:54:00" itemprop="dateCreated datePublished" datetime="2021-02-20T22:54:00+08:00">2021-02-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -529,41 +466,7 @@
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '.page-configurations',
-    '.main-inner',
-    '.post-toc-wrap',
-    '.languages',
-    '.pjax'
-  ],
-  analytics: false,
-  cacheBust: false,
-  scrollRestoration: false,
-  scrollTo: !CONFIG.bookmark.enable
-});
-
-document.addEventListener('pjax:success', () => {
-  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  const hasTOC = document.querySelector('.post-toc');
-  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
-  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 
@@ -576,9 +479,7 @@ document.addEventListener('pjax:success', () => {
 
 
 
-    <div class="pjax">
 
 
-    </div>
 </body>
 </html>
