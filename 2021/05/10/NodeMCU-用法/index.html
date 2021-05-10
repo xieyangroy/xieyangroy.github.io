@@ -23,18 +23,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.royxie.site","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="来自有趣的灵魂">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Max Soul">
-<meta property="og:url" content="https://blog.royxie.site/archives/2021/index.html">
+<meta name="description" content="基于NodeMCU的ESP8266和ESP32的板子的烧录esptool.py --port 端口 —-baud 115200 --after no_reset write_flash --flash_size detect --flash_mode dio 0x00000 二进制文件 –port选择硬件 –baud （-b）波特 write_flash &#x2F;&#x2F;执行写入–flash_mode（-fm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeMCU 用法">
+<meta property="og:url" content="https://blog.royxie.site/2021/05/10/NodeMCU-%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Max Soul">
-<meta property="og:description" content="来自有趣的灵魂">
+<meta property="og:description" content="基于NodeMCU的ESP8266和ESP32的板子的烧录esptool.py --port 端口 —-baud 115200 --after no_reset write_flash --flash_size detect --flash_mode dio 0x00000 二进制文件 –port选择硬件 –baud （-b）波特 write_flash &#x2F;&#x2F;执行写入–flash_mode（-fm">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-10T06:42:48.000Z">
+<meta property="article:modified_time" content="2021-05-10T07:46:21.353Z">
 <meta property="article:author" content="Roy">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.royxie.site/archives/2021/">
+<link rel="canonical" href="https://blog.royxie.site/2021/05/10/NodeMCU-%E7%94%A8%E6%B3%95/">
 
 
 <script class="page-configurations">
@@ -42,11 +44,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>归档 | Max Soul</title>
+<title>NodeMCU 用法 | Max Soul</title>
   
 
 
@@ -141,7 +143,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -154,6 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ENodeMCU%E7%9A%84ESP8266%E5%92%8CESP32%E7%9A%84%E6%9D%BF%E5%AD%90%E7%9A%84%E7%83%A7%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">基于NodeMCU的ESP8266和ESP32的板子的烧录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%93port"><span class="nav-number">1.0.1.</span> <span class="nav-text">–port</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%93baud-%EF%BC%88-b%EF%BC%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">–baud （-b）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#write-flash-%E6%89%A7%E8%A1%8C%E5%86%99%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">write_flash &#x2F;&#x2F;执行写入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%93flash-mode%EF%BC%88-fm-%E5%86%99%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">–flash_mode（-fm) &#x2F;&#x2F;写入模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%93flash-size-%EF%BC%88-fs%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">–flash_size （-fs）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#read-flash-%E6%89%A7%E8%A1%8C%E8%AF%BB%E5%8F%96"><span class="nav-number">1.2.</span> <span class="nav-text">read_flash &#x2F;&#x2F;执行读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#erase-flash-%E6%93%A6%E5%87%BA%E9%97%AA%E5%AD%98"><span class="nav-number">1.3.</span> <span class="nav-text">erase_flash &#x2F;&#x2F;擦出闪存</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -209,169 +212,112 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 7 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.royxie.site/2021/05/10/NodeMCU-%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Roy">
+      <meta itemprop="description" content="来自有趣的灵魂">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Max Soul">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NodeMCU 用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-05-10 14:42:48 / 修改时间：15:46:21" itemprop="dateCreated datePublished" datetime="2021-05-10T14:42:48+08:00">2021-05-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="基于NodeMCU的ESP8266和ESP32的板子的烧录"><a href="#基于NodeMCU的ESP8266和ESP32的板子的烧录" class="headerlink" title="基于NodeMCU的ESP8266和ESP32的板子的烧录"></a><strong>基于NodeMCU的ESP8266和ESP32的板子的烧录</strong></h1><p><code>esptool.py --port 端口 —-baud 115200 --after no_reset write_flash --flash_size detect --flash_mode dio 0x00000 二进制文件</code></p>
+<h3 id="–port"><a href="#–port" class="headerlink" title="–port"></a>–port</h3><p>选择硬件</p>
+<h3 id="–baud-（-b）"><a href="#–baud-（-b）" class="headerlink" title="–baud （-b）"></a>–baud （-b）</h3><p>波特</p>
+<h2 id="write-flash-执行写入"><a href="#write-flash-执行写入" class="headerlink" title="write_flash //执行写入"></a>write_flash //执行写入</h2><h3 id="–flash-mode（-fm-写入模式"><a href="#–flash-mode（-fm-写入模式" class="headerlink" title="–flash_mode（-fm) //写入模式"></a>–flash_mode（-fm) //写入模式</h3><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Mode Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>qio (常用)</td>
+<td>Quad I/O</td>
+</tr>
+<tr>
+<td>qout</td>
+<td>Quad Output</td>
+</tr>
+<tr>
+<td>dio</td>
+<td>Dual I/O</td>
+</tr>
+<tr>
+<td>dout</td>
+<td>Dual Output</td>
+</tr>
+</tbody></table>
+<h3 id="–flash-size-（-fs）"><a href="#–flash-size-（-fs）" class="headerlink" title="–flash_size （-fs）"></a>–flash_size （-fs）</h3><p><code>detect 探测硬件</code></p>
+<p><code>keep 保留bin文件的值</code></p>
+<h2 id="read-flash-执行读取"><a href="#read-flash-执行读取" class="headerlink" title="read_flash //执行读取"></a>read_flash //执行读取</h2><h2 id="erase-flash-擦出闪存"><a href="#erase-flash-擦出闪存" class="headerlink" title="erase_flash //擦出闪存"></a>erase_flash //擦出闪存</h2>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-10T14:42:48+08:00"
-              content="2021-05-10">
-          05-10
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/10/NodeMCU-%E7%94%A8%E6%B3%95/" itemprop="url">
-            <span itemprop="name">NodeMCU 用法</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/25/C-%E8%BE%93%E5%87%BA/" rel="prev" title="C++ 输出">
+                  <i class="fa fa-chevron-left"></i> C++ 输出
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-03-25T18:56:10+08:00"
-              content="2021-03-25">
-          03-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/25/C-%E8%BE%93%E5%87%BA/" itemprop="url">
-            <span itemprop="name">C++ 输出</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-24T12:21:43+08:00"
-              content="2021-02-24">
-          02-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/24/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAHexo/" itemprop="url">
-            <span itemprop="name">搭建一个Hexo</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-23T19:28:32+08:00"
-              content="2021-02-23">
-          02-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/23/BiliBili-%E8%A7%86%E9%A2%91/" itemprop="url">
-            <span itemprop="name">BiliBili 纪念轻音十年</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-20T20:16:09+08:00"
-              content="2021-02-20">
-          02-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/20/Clash/" itemprop="url">
-            <span itemprop="name">Clash</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-20T19:59:39+08:00"
-              content="2021-02-20">
-          02-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/20/WebP/" itemprop="url">
-            <span itemprop="name">WebP</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-20T19:49:16+08:00"
-              content="2021-02-20">
-          02-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/20/%E5%BB%BA%E7%AB%99/" itemprop="url">
-            <span itemprop="name">建站</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 
 <script>
